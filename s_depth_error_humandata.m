@@ -1,36 +1,36 @@
 % s_depth_error_humandata.m
-% % Mingnan Wei, 2024\11\25
-% rawdata文件夹为人眼动仪在6个深度（40，60，80，100，120，150）拍摄的原始标定数据：
-% \rawdata\Env_1为环境摄像头数据
-% \rawdata\Eye_2为眼动摄像头（右眼）数据
-% \rawdata\Eye_3为眼动摄像头（右眼）数据
+% % Mingnan Wei, 2024\11\25 translated by Fengyuan，2025/9/10
+% rawdatahuman eye tracter in 6 different depth（40，60，80，100，120，150）
+% \rawdata\Env_1data from environment camera
+% \rawdata\Eye_2data from right eye camera
+% \rawdata\Eye_3data from left eye camera
 % 
-% 具体数据以txt文件，每个深度下的三个摄像头是同一时间戳下的数据（即已时间对齐）
-% 例如如下为三个摄像头,同时在深度40所拍摄的标定数据：
+% data is stored in txt file，three env camaera in every depth had same time stamp
+% for example, thses are the three camera in the depth of 40：
 % \raw_data\Env_1\Env_1_offline_40.txt
 % \raw_data\Eye_2\Eye_2_offline_40.txt
 % \raw_data\Eye_2\Eye_3_offline_40.txt
 % 
-% 数据结构为：
-% 每一行对应为同一时间戳下的二维识别点(x和y坐标中间以空格作为分隔符)，环境摄像头的是注视位置的中心点坐标，眼动摄像头的是瞳孔位置的中心点坐标：
-% 例如\raw_data\Env_1\Env_1_offline_40.txt, 的前三行:
+% datastrecture：
+% Each line reprents the 2D location with the same time stamp. The env camera is the cntre of the gae position, while the eye cam is the cetre of pupil position.
+% forexampale \raw_data\Env_1\Env_1_offline_40.txt, is the first three lines:
 % 306 250
 % 306 250
 % 219 219
 % 
-% 对应\raw_data\Eye_2\Eye_2_offline_40.txt, 的前三行:
+% corresponding to the fisrt three line of \raw_data\Eye_2\Eye_2_offline_40.txt,:
 % 253 181
 % 253 182
 % 268 180
 % 
-% 和\raw_data\Eye_3\Eye_3_offline_40.txt, 的前三行:
+% and the first three lines of \raw_data\Eye_3\Eye_3_offline_40.txt,:
 % 337 110
 % 336 111
 % 349 108
-% 
-% 即受试者在注视屏幕标定过程中，当前时间，注视点在环境摄像头(306,250)位置处,眼动摄像头（右眼）的瞳孔位置在(253,181),眼动摄像头（左眼）的瞳孔位置在(337,110)；
-% 下一个时间，注视点在环境摄像头(306,250)位置处,眼动摄像头（右眼）的瞳孔位置在(253,182),眼动摄像头（左眼）的瞳孔位置在(337,110)
-% 再下一个时间，注视点在环境摄像头(219,219)位置处,眼动摄像头（右眼）的瞳孔位置在(268,180),眼动摄像头（左眼）的瞳孔位置在(349,108)
+% It means that when the subjects gaze at the screen during thre calibration process, in this time, the gaze position from env camera is located at(306,250), 
+% the pupile position from right eye camera is located at(253,181), the pupile position from right eye camera is located at(337,110);
+% In next time stamp, the gaze position from env camera is located at(306,250), 
+% the pupile position from right eye camera is located at(253,182), the pupile position from right eye camera is located at(337,110);
 %% save to mat. only need to run once
 
 cd 'C:\Users\zfy\Desktop\s_depth_error_humandata_Sources_041224_164534'
@@ -360,4 +360,5 @@ ieye=2
 goodpos=posstat(i).posdistribution>thr;
 
 %% 
+
 
